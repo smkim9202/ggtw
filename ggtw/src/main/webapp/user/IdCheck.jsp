@@ -21,8 +21,9 @@
 <head>
 <meta charset="UTF-8">
 <title>중복ID체크</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css">
 </head>
-<body bgcolor="#FFFFCC">
+<body>
 <br>
 <center>
 <b><%=mem_id %></b>
@@ -33,6 +34,7 @@
     	out.println("는 사용가능한 아이디입니다.<p>");
     }
 %>
+<br><br>
 <!-- 자바스크립트에서 자기 자신의 창을 가리키는 예약어 self
        window.open()<-> winodw.close() -->
 <a href="#" onclick="self.close()">닫기</a> 

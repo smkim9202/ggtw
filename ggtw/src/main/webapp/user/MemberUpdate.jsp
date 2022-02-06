@@ -1,13 +1,21 @@
-<%@ page contentType="text/html;charset=UTF-8"
-       import="hewon.*"%>
+<%@ page contentType="text/html;charset=UTF-8" import="hewon.*"%>
+<!Doctype html>
 <html>
-<head>
+ <head>
+  <meta charset="UTF-8">
 <title>회원확인</title>
 <link href="../css/style.css" rel="stylesheet" type="text/css">
 <script src="../js/script.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+	crossorigin="anonymous">
 </head>
-<body bgcolor="#FFFFCC">
-<br><br>
+<body>
+	<div id="container"><!-- 본문 전체 -->
+		<jsp:include page="/top.jsp" />
+		
+		<div id="contents">
+			<center>
 <%
   /*
     MemberUpdate.jsp?mem_id='nup' ->get방식으로 요청한 경우
@@ -23,12 +31,12 @@
 
 <table align="center" border="0" cellspacing="0" cellpadding="5" >
   <tr> 
-    <td align="center" valign="middle" bgcolor="#FFFFCC"> 
+    <td align="center" valign="middle"> 
       <table border="1" cellspacing="0" cellpadding="2"  align="center">
         <form name="regForm" method="post" action="MemberUpdateProc.jsp">
           <!-- 직접 입력을 받는것이 아닌경우 hidden객체로 전달한다. -->
           <input type="hidden" name="mem_id"  value="<%=mem_id%>">
-          <tr align="center" bgcolor="#996600"> 
+          <tr align="center" bgcolor="#07c"> 
             <td colspan="3"><font color="#FFFFFF"><b>회원 수정</b></font></td>
           </tr>
           <tr> <!-- 화면에 보이기만하고 전달은 안되는 이유는 input box에 출력X -->
@@ -103,8 +111,8 @@
           <tr> 
             <td colspan="3" align="center"> 
              <input type="submit" value="수정완료"> 
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-             <input type="reset" value="다시쓰기">
+              &nbsp; &nbsp; &nbsp; 
+             <input type="reset" value="다시쓰기">&nbsp; &nbsp; &nbsp; 
              <input type="button" value="수정취소" onclick="history.back()"> 
             </td>
           </tr>
@@ -113,5 +121,10 @@
     </td>
   </tr>
 </table>
+		</center></div>
+		
+		<jsp:include page="/bottom.jsp" />
+	
+	</div><!-- 본문 전체 -->
 </body>
 </html>

@@ -41,8 +41,9 @@
   }
 </script>
 </head>
-<body bgcolor="#FFFFCC">
+<body>
   <center>
+  	<br><br><br>
     <b>우편번호 찾기</b>
     <table>
    <form name="zipForm" method="post"  action="ZipCheck.jsp">

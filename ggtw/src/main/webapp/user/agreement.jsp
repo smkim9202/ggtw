@@ -5,9 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 동의 약관(agreement.jsp)</title>
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+	crossorigin="anonymous">
 </head>
-<body bgcolor="#FFFFCC">
-<center>
+<body>
+<div id="container"><!-- 본문 전체 -->
+		<jsp:include page="/top.jsp" />
+		
+		<div id="contents">
+			<center>
+			
    <h2>회원 동의 약관</h2>
     <textarea cols="80" rows="20" name="agree">
        제 1 조 (약관의 적용)
@@ -103,6 +112,11 @@
          onclick="document.location='Register.jsp'">
     <input type="button" value="동의하지 않습니다."
          onclick="history.back()">
-</center>
+</center></div>
+		
+		<jsp:include page="/bottom.jsp" />
+	
+	</div><!-- 본문 전체 -->
+
 </body>
 </html>

@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
     import="board.*"%>
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
 <title>글수정 하기</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css">
-<script src="../js/script.js"></script>
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <script src="../js/script.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+	crossorigin="anonymous">
 </head>
 <%
  //content.jsp->글수정버튼 클릭=>updateForm.jsp?num=3&pageNum=1
@@ -17,12 +20,15 @@
    BoardDTO article=dbPro.updateGetArticle(num);
    System.out.println("updateForm.jsp의 article=>"+article);//null (메서드 또는 매개변수문제)
 %>
-<body bgcolor="#FFFFCC">  
-<center><b>글수정</b>
-<br>
+<body>  
+	<div id="container"><!-- 본문 전체 -->
+		<jsp:include page="/top.jsp" />
+		
+		<div id="contents">
+<center><h3>글수정</h3><br>
 <form method="post" name="writeform" 
           action="updatePro.jsp?pageNum=<%=pageNum%>" onsubmit="return writeSave()">
-<table width="400" border="1" cellspacing="0" cellpadding="0"  bgcolor="#FFFFCC" align="center">
+<table width="400" border="1" cellspacing="0" cellpadding="0"  align="center">
   <tr>
     <td  width="70"align="center">이 름</td>
     <td align="left" width="330">
@@ -67,6 +73,11 @@
    </td>
  </tr>
  </table>
-</form>     
+</form>   
+		</center></div>
+		
+		<jsp:include page="/bottom.jsp" />
+	
+	</div><!-- 본문 전체 -->  
 </body>
 </html>      

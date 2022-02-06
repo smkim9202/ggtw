@@ -3,9 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>게시판</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css">
-<script  src="../js/script.js"></script>
+<title>예약게시판</title>
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <script src="../js/script.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+	crossorigin="anonymous">
 </head>
   <%
     //list.jsp(글쓰기)->신규글, content.jsp(글상세보기->글쓰기(답변글))
@@ -22,9 +25,13 @@
     			                   ",re_step="+re_step+",re_level="+re_level);
     }
   %>
-<body bgcolor="#FFFFCC">  
-<center><b>예약신청</b>
-<br><!-- onsubmit이벤트 처리="return 호출할 함수명()"(true) -->
+<body> 
+	<div id="container"><!-- 본문 전체 -->
+		<jsp:include page="/top.jsp" />
+		
+		<div id="contents">
+			<center><h3>예약신청</h3><br>
+<!-- onsubmit이벤트 처리="return 호출할 함수명()"(true) -->
 <form method="post" name="writeform" action="writePro.jsp"
          onsubmit="return writeSave()">
      <!--입력하지 않고 매개변수로 전달해서 테이블에 저장(hidden) 4개  -->
@@ -33,7 +40,7 @@
      <input type="hidden" name="re_step" value="<%=re_step%>">
      <input type="hidden" name="re_level" value="<%=re_level%>">
      
-<table width="400" border="1" cellspacing="0" cellpadding="0"  bgcolor="#FFFFCC" align="center">
+<table width="400" border="1" cellspacing="0" cellpadding="0" align="center">
    <tr>
     <td align="right" colspan="2" >
 	    <a href="list.jsp"> 글목록</a> 
@@ -71,6 +78,11 @@
   <input type="reset" value="다시작성">
   <input type="button" value="목록보기" OnClick="window.location='list.jsp'">
 </td></tr></table>    
-</form>      
+</form>
+		</center></div>
+		
+		<jsp:include page="/bottom.jsp" />
+	
+	</div><!-- 본문 전체 -->      
 </body>
 </html>      

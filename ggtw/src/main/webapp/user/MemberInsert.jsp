@@ -17,7 +17,7 @@
 <meta charset="UTF-8">
 <title>회원가입확인</title>
 </head>
-<body bgcolor="#FFFFCC">
+<body>
 <br>
 <center>
 <%

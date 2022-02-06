@@ -1,276 +1,359 @@
 @charset "UTF-8";
-/*테블릿 화면에만 표시 되는 태그들 */
-.hd2, .sc2, .sc3{display:none;}
-/*태그 기본 속성 없애기*/
-ul{list-style-type:none;}
-a{text-decoration:none;}
-/*전체 위치 조절*/
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+
 *{
-	margin:0; padding:0;	
-	background-color:#FFFFCC;
+	margin:0;
+	padding:0;
+	box-sizing:border-box;	
+}
+a{
+	text-decoration: none;
+}
+ul{
+	list-style:none;
 }
 
-.wrap{
-	width:1000px;
-	margin: 0 auto;
+#container{
+	margin:0 auto; /*화면 중앙에 배치*/
+	width:1200px; /*너비지정*/
+	
+}
+header{
+	width:100%; /*헤더 너비*/
+	height:100px; /*헤더 높이*/
+	background-color: #07c;	
 }
 
-/*웹페이지 상단부분 - 로고, 메뉴바*/
-h1{
+#logo{
+	float: left;
+	width:350px;
+	height:100px;
+	line-height:100px;
+	padding-left:20px;
+}
+#logo h1{
+	font-family: 'Merienda One', cursive;
+	font-weight:700;
+	font-size:40px;
+	color:#fff;
+	text-shadow: 0 -1px 0 #222; /*그림자색*/
+}
+
+
+#navMenu{
+	float: left;
+	width:550px;
+	height:100px;
+	padding-top:40px;
+}
+#navUser{
+	float: right;
+	width:250px;
+	height:100px;
+	padding-top:40px;
+}
+#topMenu{
+	height:60px;
+}
+
+#topMenu > li{
+	float: left; /*메뉴항목을 왼쪽으로 플로팅*/
+	position:relative;/*서브메뉴 absolute로 만들기 위해 부모 요소를 relative로 지정*/
+}
+#topMenu > li > a{
+	display:block; /*링크 텍스트는 볼록으로*/
+	color: #fff; /*폰트 색상*/
+	font-weight:600;
+	text-shadow: 0 1px #07c;
+	padding: 20px 30px;
+}
+#topMenu > li > a > span{
+	font-size:0.5em;
+}
+#topMenu > li > a:hover{
+	color: #000;
+	text-shadow: 0 -1px #07c;
+}
+#topMenu > li > ul {
+	display:none; /*서브메뉴를 처음에는 감춤*/
+	position:absolute; /*서브메뉴 포지셔닝*/
+	width:120px;
+	background-color: rgba(255,255,255,0.6);/*배경투명색 지정*/
+	left:0;
+	margin:0;
+}
+#topMenu > li > ul > li {
+	padding:10px 10px 10px 20px; /*서브메뉴 항목 지정*/
+}
+#topMenu > li > ul > li > a{
+	font-size:14px;
+	padding:10px;
+	color:#000;
+}
+#topMenu > li:hover > ul {
+	display:block; /*메인 메뉴 항목 위로 오버하면 서브메뉴 표시*/
+	z-index:10; /*슬라이드 쇼에 가리지 않게 조절*/
+}
+#topMenu > li > ul > li > a:hover{
+	color:#f00;
+}
+#slideShow{
+	clear:both;/*플로팅 해제*/
+	width:100%;
+	height:400px;
+	overflow: hidden; /*영역 넘치면 감춤*/
+	position:relative;
+}
+#slides{
+	position:absolute;
+}
+#slides > img{
+	width:100%;
 	float:left;
-	position:relative;
-	left:2%;top:30px;	
+}
+/*자동 배너로 바꾸기
+button{
+	position:absolute;
+	height:100%;
+	top:0;
+	border:none;
+	padding:20px;
+	background-color:transparnet;
+	color: #000;
+	font-weight:800;
+	font-size:24px;
+	opacity:0.5;
+}
+#prev{
+	left: 0;
+}
+#next{
+	right:0;
 }
 
-.nv1{
-    width:58%;height:50px;
+button:hover{
+	background-color:#222;
+	color:#fff;
+	opacity:0.6;
+	cursor:pointer;
+}
+button:focus{
+	outline:0;
+}
+*/
 
-    float:left;
-	position:relative;
-    left:6%;
-	top:30px;/* 회사로고 바로 옆에 배치시키기위함(같은 높이때문에) */
-	z-index:5;/* 같은위치인 경우 z-index가 높은것이 맨앞에 배치 */
-}
-
-/* 상단메뉴에 마우스를 갖다댈때 색깔 부여 */
-.main1:hover{/* 클래스 선택자가 main1인 태그에 마우스를 갖다대면*/
-  font-weight:bold;
-  color:black;
-  text-decoration:underline;
-}
-.main2:hover{/* 클래스 선택자가 main2인 태그에 마우스를 갖다대면*/
-  font-weight:bold;
-  color:black;
-  text-decoration:underline;
-}
-.main3:hover{/* 클래스 선택자가 main3인 태그에 마우스를 갖다대면*/
-  font-weight:bold;
-  color:black;
-  text-decoration:underline;
-}
-.main4:hover{/* 클래스 선택자가 main4인 태그에 마우스를 갖다대면*/
-  font-weight:bold;
-  color:black;
-  text-decoration:underline;
+#contents{
+	width:100%;
+	height:800px;
+	margin:20px 5px 10px 5px;
 }
 
-/* 상단메뉴의 거리(위치),여백 설정*/
-.main1{
-  position:absolute;
-  left:10%;/* 로고문자기준->14%정도 오른쪽 이동(x축) */
-  top:10px;/*상단메뉴의 테두리에서의 위치 */
+#tabMenu{
+	float:left;
+	width:580px;
+	height:40%;
+
+}
+#tabMenu input[type="radio"]{
+	display:none;
 }
 
-.main2{
-  position:absolute;/* relative경우에는 Shopping을 기준X */
-  left:28%;/* 로고문자기준->43%정도 오른쪽 이동(x축) */
-  top:10px;/*상단메뉴의 테두리에서의 위치 */
+#tabMenu label{
+	display:inline-block;
+	margin:0 0;
+	padding:15px 25px;
+	font-weight:600;
+	text-align:center;
+	color:#aaa;
+	border: 1px solid transparent;
+}
+#tabMenu label:hover{
+	color:#222;
+	cursor:pointer;
+}
+#tabMenu input:checked+label{
+	color:#b00;
+	border:1px solid #ddd;
+	background-color:#eee;
+}
+.tabContent{
+	display:none;
+	padding:20px 0 0;
+	border-top: 1px solid #ddd;
+}
+.tabContent h2{
+	display:none;
+}
+#notice ul {
+	list-style: disc;
+	margin-left: 30px;
+}
+#notice ul li{
+	font-size:16px;
+	line-height:2.5;
+}
+#reservation ul {
+	list-style: disc;
+	margin-left: 30px;
+}
+#reservation ul li{
+	font-size:16px;
+	line-height:2.5;
+}
+#tab1:checked ~ #notice, 
+#tab2:checked ~ #reservation{
+	display:block;
 }
 
-.main3{
-  position:absolute;
-  right:35%;/*left:67%; 로고문자기준->67%정도 오른쪽 이동(x축) */
-  top:10px;/*상단메뉴의 테두리에서의 위치 */
-}
 
-.main4{
-  color:red;
-  font-weight:bold;
-  position:absolute;
-  right:10%;/*left:67%; 로고문자기준->67%정도 오른쪽 이동(x축) */
-  top:10px;/*상단메뉴의 테두리에서의 위치 */
-}
-
-.sub { 
-   display:none; 
-   position:absolute;
-   top:43px;/*10px(상단메뉴)+30px */
-   left:50px;
-   /*border:1px solid black; /* 영역설정할때 border속성을 줘서 확인할것 */
-}
-
-.sub li,.sub li a {/* 하위메뉴  */
-   z-index:1;/*  이 영역과 겹치는 이미지,동영상이 있다면 맨앞에 배치*/
-   color:black;
-   background-color:#FFFFCC;
-   font-weight:bold;
-}
-
-.sub1{/* 3단계 메뉴*/
-   display:none; 
-   float:right;/* 오른쪽에 배치 */
-   position:relative;/* 2단계 메뉴를 기준으로 배치(absolute->left,top 복잡)*/
-}
-
-.nv1 div a {
-  display:inline-block;/* 가로로 정렬이 되면서(inline),width,height을 줬을때
-                                    설정이 되면서 줄바꿈도 되어야하는경우에 사용*/
-  padding:10px;
-}
-
-.nv2{
-    width:13%;height:50px;
-	border:1px solid black;
+#sLinks{
 	float:right;
-	position:relative;
-	top:30px;
-	right:2%;
+	width:580px;
+	height:40%;
+
+}
+#slinks > h3{
+	margin:10px;
+	padding:10px 0 ;
+}
+#sLinks ul{
+	padding:0;
+	overflow:hidden;
+}
+#sLinks ul li{
+	float: left; 
+	width:33%;
+	text-align:center;
+	margin:25px 0 ;
+}
+#quick-icon1, #quick-icon2, #quick-icon3{
+	display:block;
+	margin: 0;
+	width:150px;
+	height:150px;
+	border-radius:100%;
+	border:1px solid #ddd;
+	line-height:150px;
 }
 
-.nv2 ul > li{
-  float:left;
-  margin-left:10%;
-  margin-top:20px;
-  font-size:11px;
+#quick-icon1{
+	background-image:url('../img/icon-1.jpg');
+}
+#quick-icon2{
+	background-image:url('../img/icon-2.jpg');
+}
+#quick-icon3{
+	background-image:url('../img/icon-3.jpg');
+}
+#quick-title{
+
+	margin-right:40px;
+	font-weight:600;
+	color:#666;
+
 }
 
-.nv2 ul li a{
-   display:inline-block;/*메뉴 정렬 방식(가로)*/
-   padding:5px;
-   color:black;
-}
-.nv2 ul li a:hover{
-  font-weight:bold;
-  color:black;
-  text-decoration:underline;
-  font-weight:bold;
- 
-}
-
-/*웹페이지 본문*/
-.cycle-slideshow{
-  position:relative;/*위의 header태그를 기준 바로 밑에 배치 */
-  top:100px;
-  z-index:1;
-}
-.cycle-slideshow  img{ /* 이미지 3개 전부 */
-  height:350px;/* 400px->350px 줄임*/
-}
-
-.at1{
-   width:60%;height:250px;
-   border:1px solid black;
-   float:left;/*첫번째 이미지를 기준 왼쪽부터 정렬*/
-   position:relative;
-   top:120px;
-   left:1%;
-   z-index:3;
-}
- .d1>figure>img{  /* .d1 figure img(한개만 존재할 경우)_ */
-   width:200px;height:200px; /*이미지의 크기*/
-   border:1px solid black;
-   display:inline-block;
-   position:absolute;/*처음에 나오는 이미지 위치*/
-   top:50px;/*이미지의 소개문구와의 거리때문에*/
-   z-index:6;/*위에 있는 테두리와 이미지가 만약에 겹치면 이미지가 맨앞에 위치*/
- }
- .d2>figure>img{ 
-   width:200px;height:200px; /*이미지의 크기*/
-   border:1px solid black;
-   display:inline-block;
-   position:absolute;
-   top:50px;left:200px;/*왼쪽부터 200px에 두번째 이미지위치*/
-   z-index:6;
- }
- .d3>figure>img{  
-   width:200px;height:200px; /*이미지의 크기*/
-   border:1px solid black;
-   display:inline-block;
-   position:absolute;
-   top:50px;left:400px;/*두번째부터 세번째이미지 위치 */
-   z-index:6;
- }
- .fc1{
-   font-size:16px;
-   float:left;
-   position:relative;
-   left:5px;
- }
-  .fc2{
-   font-size:16px;
-   float:left;
-   position:relative;
-   left:66px;
- }
-  .fc3{
-   font-size:16px;
-   float:left;
-   position:relative;
-   left:130px;
- }
-
-  .at2{ 
-   width:35%;height:250px;
-   border:1px solid black;
-   float:right;
-   position:relative;
-   top:120px;
-   z-index:3;
-}
-/* 이미지를 줄여서 넣어주는 작업*/
-.at2 > img{
-  width:170px;height:200px;
-  position:relative;
-  display:inline-block;
-  z-index:1;
-  top:20px;/*다른 이미지와 거의 같은 수준의 높이로 맞출생각*/
-}
-#dv1{ /*id 선택자 */
- position:relative;
- display:inline-block;
- left:10px;/*이미지를 기준으로 왼쪽으로 150px 떨어진 위치 */
- top:0px;/* 이미지와 거의 일직선상의 높이를 계산*/
- z-index:5;
-}
-
-.at3 > embed{
- position:relative;
- top:100px;
- width:450px;height:300px;
- margin:50px;/* margin-left,margin-top,margin-right,margin-bottom까지 50px*/
-}
-.at4 > img { /* 450+450=900+100px(양쪽여백 50px) */
-  float:right;/*오른쪽에 배치*/
-  width:450px;height:300px;
-  position:relative;
-  top:-255px;/* -300px 동영상의 높이와 맞게하면 될것생각->50px계산 */
-  /*right:20px;/* left:10px>?*/
-  margin-right:20px;
-}
-
-/*웹페이지하단부분*/
-.ft1{
-   clear:both;/*위에 설정한 배치속성 초기화 설정*/
-   border:1px solid black;
-   position:relative;
-   height:100px;
-   top:-200px;
-   /* left:5%; */
-   margin:0 auto;/* margin-top:0,margin-bottom:0 좌우여백은 알아서 조절*/
-}
-.nv3{
-   position:relative;
-   top:20px;
-}
-.nv3 ul>li{
-  float:left;/*왼쪽을 기준*/
-  margin-left:4.3%;/*footer테두리와 nav태그사이의 거리*/
-}
-.ㅣ1 {
-	padding:10px 0px;	/* 안쪽 여백 */
-	
-}
-.nv4 {
-	position:relative;
-	top:40px;	/* 2행을 만들기 위해	*/
-}
-.nv4 ul {
-	list-style-type:none;
-	
-}
-.nv4 ul > li {
+#video{
 	float:left;
-	margin-left:3%;
-	font-size:11px;
+	width:580px;
+	height:60%;
+
 }
+#video h3{
+	margin:10px;
+	padding:10px 0 0 0;
+}
+#video embed{
+	width:450px;
+	height:300px;
+	margin:10px 40px;
+
+}
+
+#event{
+	float:right;
+	width:580px;
+	height:60%;
+
+
+}
+#event h3{
+	margin:10px;
+	padding:10px 0 0 0;
+}
+
+
+#eventPic > img{
+	width:180px;
+	height:280px;
+	position:relative;
+	float:left;
+	margin: 10px 0 10px 40px;
+}
+#eventTable table{
+	width:300px;
+	height:280px;
+	position:relative;
+	float:right;
+	margin: 10px 20px 10px 0;
+
+}
+#eventTable table td{
+	text-align: center;
+    font-size:1em;
+}
+footer{
+	width:100%;
+	height:100px;
+	border-top: 2px solid #222;
+}
+#bottomMenu{
+	width:100%;
+	height:20px;
+	position:relative;
+}
+#bottomMenu ul{
+	margin-top:15px;
+}
+#bottomMenu ul li{
+	float:left;
+	padding:5px 20px;
+	border-right:1px solid #ddd;
+}
+#bottomMenu ul li:last-child{
+	border-right:none;
+}
+#bottomMenu ul li a, #bottomMenu ul li a:visited{
+	font-size:15px;
+	color: #666;
+}
+#sns{
+	position:absolute;
+	right:0;
+}
+#sns ul li{
+	border: none;
+	padding: 5px;
+}
+#company{
+	clear:left;
+	margin-top:25px;
+	margin-left:20px;
+	
+}
+#company p {
+	font-size:14px;
+	color:#aaa;
+}
+
+
+
+
+
+
+
+
+
+
+
 

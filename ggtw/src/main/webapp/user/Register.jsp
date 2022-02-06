@@ -1,19 +1,29 @@
-<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!Doctype html>
 <html>
-<head>
-<title>회원가입</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css">
-<script language="JavaScript" src="../js/script.js?ver=1"></script>
+ <head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <script src="../js/script.js"></script>
+  <script language="JavaScript" src="../js/script.js?ver=1"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+	crossorigin="anonymous">
 </head>
-<body bgcolor="#996600" onLoad="regForm.mem_id.focus()">
-<br><br>
+<body onLoad="regForm.mem_id.focus()">
+	<div id="container"><!-- 본문 전체 -->
+		<jsp:include page="/top.jsp" />
+		
+		<div id="contents">
+			<center>
 <table align="center" border="0" cellspacing="0" cellpadding="5" >
   <tr> 
-    <td align="center" valign="middle" bgcolor="#FFFFCC"> 
+    <td align="center" valign="middle"> 
       <table border="1" cellspacing="0" cellpadding="2"  align="center">
         <form name="regForm" method="post" action="RegisterProc.jsp">
-          <tr align="center" bgcolor="#996600"> 
-            <td colspan="3"><font color="#FFFFFF"><b>회원 가입</b></font></td>
+          <tr align="center" bgcolor="#07c"> 
+            <td colspan="3"><font color="#fff"><b>회원 가입</b></font></td>
           </tr>
           <tr> 
             <td width="16%">아이디</td>
@@ -90,5 +100,12 @@
     </td>
   </tr>
 </table>
+		</center></div>
+		
+		<jsp:include page="/bottom.jsp" />
+	
+	</div><!-- 본문 전체 -->
+
 </body>
 </html>
+

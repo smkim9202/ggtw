@@ -9,141 +9,161 @@
 <html>
  <head>
   <meta charset="UTF-8">
-   <title>GGTW</title>
-<!-- 
- media속성(반응형) 웹의 크기를 지정할때 사용(해상도)
- screen and (min-width:768px)(최소 해상도 픽셀)->해상도 이하 tablet.css적용
--->
-<link href="css/index.css" rel="stylesheet" type="text/css"
-         media="screen and (min-width:768px)"> 
-<link href="css/tablet.css" rel="stylesheet" type="text/css"
-         media="screen and (max-width:768px)"> <!--테블릿화면 적용 스타일시트-->
-<!-- jQuery를 이용한 상단메뉴처리 : 마우스 올리면 서브메뉴 보이게 하기-->
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="js/index.js"></script>
-<script src="js/jquery.cycle2.js"></script>
- </head>
- <body  onload="document.login.mem_id.focus()">
- 	<div class="wrap"><!-- 본문 전체 -->
- 		<!-- 웹페이지 상단부분 -->
- 		<header class="hd1">
- 			<h1>GoGoTaiwan</h1>
- 			<!-- 메뉴바 -->
- 			<nav class="nv1">
- 				<div><a href="#" class="main1">소개</a>
- 					 <ul class="sub">
- 					 	<li><a href="#">홈소개</a></li>
- 						<li><a href="#" class="a1">투어소개</a>
- 							<ul class="sub1">
- 								<li><a href="#">예스진지</a></li>
- 								<li><a href="#">시티투어</a></li>
- 								<li><a href="#">화련투어</a></li>
- 							</ul>
- 						</li>
- 						<li><a href="#">차량소개</a></li>
- 					</ul>
- 				</div>	
- 				<div><a href="#" class="main2">요금안내</a></div>
- 				<div><a href="#" class="main3">공지사항</a></div>
- 				<div><a href="board/list.jsp" class="main4">예약신청</a></div>
+  <title>GGTW</title>
+  <link href="css/index.css" rel="stylesheet" type="text/css"> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+	crossorigin="anonymous">
+</head>
+<body>
+	<div id="container"><!-- 본문 전체 -->
+		<header>
+			<div id="logo">
+				<a href="${path}"><h1>Go Go Taiwan</h1></a>
+			</div>
+			<nav id="navMenu"><!-- 메뉴바 -->
+				<ul id="topMenu">
+					<li><a href="#">소개 <span>▼</span></a>
+						<ul>
+							<li><a href="#">회사소개</a></li>
+							<li><a href="#">투어소개</a></li>
+						</ul>
+					</li>
+					<li><a href="#">요금안내 <span>▼</span></a>
+						<ul>
+							<li><a href="fare/taxi.jsp">택시투어</a></li>
+							<li><a href="fare/ben.jsp">벤투어</a></li>
+							<li><a href="fare/bus.jsp">버스투어</a></li>							
+						</ul>					
+					</li>
+					<li><a href="#">공지사항</a></li>
+					<li><a href="board/list.jsp">예약신청</a></li>
+				</ul>
 			</nav>
- 			<nav class="nv2">
+			<nav id="navUser"><!-- 로그인/회원가입-->
  				<%if(mem_id!=null){ %> 
-				 	<ul>
+				 	<ul id="topMenu">
 	 					<li><a href="user/Logout.jsp">Logout</a></li>
-	 					<li><a href="user/Login.jsp">회원관리</a></li>
+	 					<li><a href="user/Login.jsp">Mypage</a></li>
  					</ul>
 				<% }else {%>	 			
-	 				<ul>
+	 				<ul id="topMenu">
 	 					<li><a href="user/Login.jsp">Login</a></li>
-	 					<li><a href="user/agreement.jsp">회원가입</a></li>
+	 					<li><a href="user/agreement.jsp">Join</a></li>
 	 				</ul>
 	 			<% }%>
- 			</nav>
- 		</header>
- 		<header class="hd2">
-			<h2>모바일메뉴바</h2>
- 		</header>
- 		
- 		<!-- 웹페이지 본문부분 -->
- 		<!-- 상단 배너 이미지 -->
- 		<div class="cycle-slideshow">
- 			<img src="img/sc1-img3.jpg" alt="sc-3">
- 			<img src="img/sc1-img2.jpg" alt="sc-2">
- 			<img src="img/sc1-img1.jpg" alt="sc-1">
- 		</div>
- 		<!-- 메인 콘텐츠 -->
- 		<section class="sc2">모바일 차량소개<br><img src="img/at1-img1.jpg"></section>
- 		<section class="sc3">모바일 이벤트<br><img src="img/at1-img8.jpg"  width="400" height="400"></section>
- 		<article class="at1">
- 			<h3>차량 소개</h3>
- 			<div class="d1">
- 				<figure>
- 					<img src="img/at1-img1.jpg" alt="at-1">
- 					<figcaption class="fc1">
- 						<img src="img/at1-img5.png"> 택시투어(최대4인)
- 					</figcaption>
- 				</figure>
- 			</div>
- 			 <div class="d2">
- 				<figure>
- 					<img src="img/at1-img2.jpg" alt="at-2">
- 					<figcaption class="fc2">
- 						<img src="img/at1-img6.png"> 벤투어(최대9인)
- 					</figcaption>
- 				</figure>
- 			</div>
- 			 <div class="d3">
- 				<figure>
- 					<img src="img/at1-img3.jpg" alt="at-3">
- 					<figcaption class="fc3">
- 						<img src="img/at1-img7.png"> 버스투어(최대45인)
- 					</figcaption>
- 				</figure>
- 			</div>
- 		</article>
- 		<article class="at2">
- 			<img src="img/at1-img8.jpg">
- 			<div id="dv1">
- 				<h3>E V E N T</h3>
- 				<br><br>
- 				<h6>코로나 극복 응원 이벤트!</h6>
- 				<h5>택시투어예약시</h5>
- 				<h6>땅콩아이스크림제공</h6>
- 				<br>
- 				<button id="btn1">예약신청</button>
- 				<button id="btn2">투어 상세 보기</button>
- 				</div>
- 		</article>
- 		<article class="at3">
- 			<embed src="vd/main_vd.mp4" [width:"450px" height:"300px"]>
- 		</article>
- 		<article class="at4">
-	 		<img src="img/vd.PNG" alt="riview">
- 		</article>
- 		
- 		<!-- 웹페이지 하단부분 -->
- 		<footer class="ft1">
- 			<nav class="nv3">
- 				<ul>
- 					<li><a href="#">서비스 이용약관</a></li>
- 					<li class="l1">|</li>
-  					<li><a href="#">개인정보처리 방침</a></li>
- 					<li class="l1">|</li>
- 					<li><a href="#">고객서비스 센터</a></li>
- 					<li class="l1">|</li>
-  					<li><a href="#">환불정책</a></li>
- 				</ul>
- 				<br>
- 			</nav>
- 			<nav class="nv4">
- 				<ul>
- 					<li>대표 : 김대만</li>
- 					<li>대표번호 : 02-123-4567</li>
- 					<li>ggtw@gmail.com</li>
- 					<li>서울시 행복구 여행동 418 투어빌딩 309호</li>
- 				</ul>	
- 			</nav>
- 		</footer>
- 	</div> 
- </body>
+			</nav>		
+			
+		</header>
+		<div id="slideShow"><!-- 롤링배너 -->
+			<div id="slides">
+				<img src="img/sc1-img1.jpg" alt="sc-1">
+	 			<img src="img/sc1-img2.jpg" alt="sc-2">
+	 			<img src="img/sc1-img3.jpg" alt="sc-3"> 
+	 			<!--자동 배너로 바꾸기 
+				<button id="prev">&lt;</button>
+				<button id="next">&gt;</button>-->						
+			</div>			
+		</div>
+		<div id="contents">
+			<div id="tabMenu"><!-- 탭 메뉴 -->
+				<input type="radio" id="tab1" name="tabs" checked>
+				<label for="tab1">공지사항</label>
+				<input type="radio" id="tab2" name="tabs">
+				<label for="tab2">예약신청</label>
+				
+				<div id="notice" class="tabContent">
+					<h2>공지사항 내용입니다.</h2>
+					<ul>
+						<li>게시물1</li>
+						<li>게시물2</li>
+						<li>게시물3</li>
+						<li>게시물4</li>
+						<li>게시물5</li>
+					</ul>
+				</div>
+				
+				<div id="reservation" class="tabContent">
+					<h2>예약신청 현황입니다.</h2>
+					<ul>
+						<li>예약1</li>
+						<li>예약2</li>
+						<li>예약3</li>
+						<li>예약4</li>
+						<li>예약5</li>
+					</ul>
+				</div>
+			</div>
+			<div id="sLinks"><!-- 원형 퀵 링크 -->
+				<h3>요금안내</h3>
+				<ul>
+					<li>
+						<a href="fare/taxi.jsp">
+							<span id="quick-icon1"></span>
+							<span id="quick-title">택시투어</span>
+						</a>
+					</li>
+					<li>
+						<a href="fare/ben.jsp">
+							<span id="quick-icon2"></span>
+							<span id="quick-title">벤투어</span>
+						</a>
+					</li>
+					<li>
+						<a href="fare/bus.jsp">
+							<span id="quick-icon3"></span>
+							<span id="quick-title">버스투어</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div id="video"><!-- 홍보 영상 -->
+				<h3>홍보 영상</h3>
+				<embed src="vd/main_vd.mp4" []>
+			</div>
+			<div id="event"><!-- 이벤트 -->
+				<h3>이벤트</h3>
+
+				<div id="eventPic">
+					<img src="img/eventimg.jpg">
+				</div>
+				<div id="eventTable">
+					<table>
+						<tr><th>코로나 극복 응원 이벤트!</th></tr>
+						<tr><td>택시투어예약시<br>땅콩아이스크림제공<br>
+							2인당 1개씩! 총 2개!!<br>지금바로신청하세요!</td></tr>
+						<tr><td>
+							<button onclick = "location.href = 'board/list.jsp'" id="btn1">예약신청</button>
+ 							<button onclick = "location.href = 'fare/taxi.jsp'"  id="btn2">투어 상세 보기</button></td></tr>
+					</table>
+				</div>
+						
+			</div>
+		</div>
+		<footer><!-- 풋터 -->
+			<div id="bottomMenu">
+				<ul>
+					<li><a href='#'>회사 소개</a></li>
+					<li><a href='#'>개인정보처리방침</a></li>
+					<li><a href='#'>여행약관</a></li>
+					<li><a href='#'>사이트맵</a></li>
+				</ul>
+				<div id="sns">
+					<ul>
+						<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+						<li><a href="#"><i class="fab fa-line"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="company">
+				<p>서울특별시 행복구 여행동 투어빌딩 (대표전화) 02-123-4567</p>
+			</div>
+		</footer>
+	
+	
+	
+	</div><!-- 본문 전체 -->
+	<script src="js/slideshow.js"></script>
+</body>
+</html>

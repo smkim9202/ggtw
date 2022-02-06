@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
     import="board.*,java.util.*,java.text.SimpleDateFormat" %>
-<!DOCTYPE html>
+<!Doctype html>
 <%
    //소스를 변경해도 바로 반영이 안되는 경우->서버에서 기본적으로 전의 페이지 불러오기(저장하기때문에)
    response.setHeader("Cache-Control","no-cache");//요청시 메모리에 저장X
@@ -41,13 +41,23 @@
   System.out.println("페이지별  number=>"+number);
 %>
 <html>
-<head>
+ <head>
+  <meta charset="UTF-8">
 <title>예약신청</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <script src="../js/script.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+	crossorigin="anonymous">
 </head>
-<body bgcolor="#FFFFCC">
-<center><b>글목록(전체 글:<%=count%>)</b>
-<table width="700">
+<body>
+	<div id="container"><!-- 본문 전체 -->
+		<jsp:include page="/top.jsp" />
+		
+		<div id="contents">
+			<center>
+			<h3>예약게시판(전체 글:<%=count%>)</h3><br>
+<table width="800">
 <tr>
     <td align="right">
     <a href="writeForm.jsp">글쓰기</a>
@@ -58,13 +68,13 @@
 <%
   if(count==0){
 %>
-<table border="1" width="700" cellpadding="0" cellspacing="0" align="center"> 
+<table border="1" width="800" cellpadding="0" cellspacing="0" align="center"> 
    <tr>
        <td align="center">게시판에 저장된 글이 없습니다.</td>
    </tr>
 </table>
 <%}else { %>
-<table border="1" width="700" cellpadding="0" cellspacing="0" align="center"> 
+<table border="1" width="800" cellpadding="0" cellspacing="0" align="center"> 
     <tr height="30"> 
       <td align="center"  width="50"  >번 호</td> 
       <td align="center"  width="250" >제   목</td> 
@@ -146,6 +156,10 @@
       }//다음블럭
    }//if(count > 0)
     %>
-</center>
+		</center></div>
+		
+		<jsp:include page="/bottom.jsp" />
+	
+	</div><!-- 본문 전체 -->
 </body>
 </html>

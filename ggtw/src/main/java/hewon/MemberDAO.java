@@ -243,6 +243,5 @@ public class MemberDAO {
 		}
 		return x;
 	}
-	//8)회원리스트->과제(게시판의 글목록보기를 보고 작성)
 	
 }

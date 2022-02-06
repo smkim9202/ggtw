@@ -11,13 +11,19 @@
 <html>
 <head>
 <title>게시판</title>
-<link href="../css/style.css" rel="stylesheet" type="text/css">
-<script  src="../js/script.js"></script>
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <script src="../js/script.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+	crossorigin="anonymous">
 </head>
 
-<body bgcolor="#FFFFCC">
-<center><b>글삭제</b>
-<br>
+<body >
+	<div id="container"><!-- 본문 전체 -->
+		<jsp:include page="/top.jsp" />
+		
+		<div id="contents">
+<center><h3>글삭제</h3><br>
 <form method="POST" name="delForm"  action="deletePro.jsp" 
    onsubmit="return deleteSave()"> 
  <table border="1" align="center" cellspacing="0" cellpadding="0" width="360">
@@ -41,6 +47,10 @@
  </tr>  
 </table> 
 </form>
-</center>
+		</center></div>
+		
+		<jsp:include page="/bottom.jsp" />
+	
+	</div><!-- 본문 전체 -->
 </body>
 </html> 

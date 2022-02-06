@@ -11,20 +11,29 @@
 %>
 <jsp:useBean id="mem"  class="hewon.MemberDTO" />
 <jsp:setProperty name="mem" property="*" />
+<!Doctype html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>회원가입 확인</title>
 <link href="../css/style.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" src="js/script.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
+	integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
+	crossorigin="anonymous">
 </head>
-<body bgcolor="#996600">
-<br><br>
+<body>
+	<div id="container"><!-- 본문 전체 -->
+		<jsp:include page="/top.jsp" />
+		
+		<div id="contents">
+			<center>
 <table align="center" border="0" cellspacing="0" cellpadding="5" >
   <tr> 
-    <td align="center" valign="middle" bgcolor="#FFFFCC"> 
+    <td align="center" valign="middle"> 
       <table border="1" cellspacing="0" cellpadding="2"  align="center">
         <form name="regForm" method="post" action="MemberInsert.jsp">
-          <tr align="center" bgcolor="#996600"> 
+          <tr align="center" bgcolor="#07c"> 
             <td colspan="3"><font color="#FFFFFF"><b>
             <!-- mem.getMem_name() -->
                <jsp:getProperty name="mem" property="mem_name" />님이 작성하신 내용입니다. 확인해주세요.
@@ -93,5 +102,10 @@
     </td>
   </tr>
 </table>
+		</center></div>
+		
+		<jsp:include page="/bottom.jsp" />
+	
+	</div><!-- 본문 전체 -->
 </body>
 </html>

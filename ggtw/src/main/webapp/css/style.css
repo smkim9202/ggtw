@@ -1,7 +1,157 @@
 @charset "UTF-8";
-BODY {
-	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 160%; FONT-FAMILY: 굴림,verdana,tahoma
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;	
 }
+a{
+	text-decoration: none;
+}
+ul{
+	list-style:none;
+}
+/*레이아웃*/
+#container{
+	margin:0 auto; /*화면 중앙에 배치*/
+	width:1200px; /*너비지정*/
+	
+}
+header{
+	width:100%; /*헤더 너비*/
+	height:100px; /*헤더 높이*/
+	background-color: #07c;	
+}
+
+#logo{
+	float: left;
+	width:350px;
+	height:100px;
+	line-height:100px;
+	padding-left:20px;
+}
+#logo h1{
+	font-family: 'Merienda One', cursive;
+	font-weight:700;
+	font-size:40px;
+	color:#fff;
+	text-shadow: 0 -1px 0 #222; /*그림자색*/
+}
+
+
+#navMenu{
+	float: left;
+	width:550px;
+	height:100px;
+	padding-top:40px;
+}
+#navUser{
+	float: right;
+	width:250px;
+	height:100px;
+	padding-top:40px;
+}
+#topMenu{
+	height:60px;
+}
+
+#topMenu > li{
+	float: left; /*메뉴항목을 왼쪽으로 플로팅*/
+	position:relative;/*서브메뉴 absolute로 만들기 위해 부모 요소를 relative로 지정*/
+}
+#topMenu > li > a{
+	display:block; /*링크 텍스트는 볼록으로*/
+	color: #fff; /*폰트 색상*/
+	font-weight:600;
+	text-shadow: 0 1px #07c;
+	padding: 20px 30px;
+}
+#topMenu > li > a > span{
+	font-size:0.5em;
+}
+#topMenu > li > a:hover{
+	color: #000;
+	text-shadow: 0 -1px #07c;
+}
+#topMenu > li > ul {
+	display:none; /*서브메뉴를 처음에는 감춤*/
+	position:absolute; /*서브메뉴 포지셔닝*/
+	width:120px;
+	background-color: rgba(255,255,255,0.6);/*배경투명색 지정*/
+	left:0;
+	margin:0;
+}
+#topMenu > li > ul > li {
+	padding:10px 10px 10px 20px; /*서브메뉴 항목 지정*/
+}
+#topMenu > li > ul > li > a{
+	font-size:14px;
+	padding:10px;
+	color:#000;
+}
+#topMenu > li:hover > ul {
+	display:block; /*메인 메뉴 항목 위로 오버하면 서브메뉴 표시*/
+	z-index:10; /*슬라이드 쇼에 가리지 않게 조절*/
+}
+#topMenu > li > ul > li > a:hover{
+	color:#f00;
+}
+
+
+footer{
+	width:100%;
+	height:100px;
+	border-top: 2px solid #222;
+}
+#bottomMenu{
+	width:100%;
+	height:20px;
+	position:relative;
+}
+#bottomMenu ul{
+	margin-top:15px;
+}
+#bottomMenu ul li{
+	float:left;
+	padding:5px 20px;
+	border-right:1px solid #ddd;
+}
+#bottomMenu ul li:last-child{
+	border-right:none;
+}
+#bottomMenu ul li a, #bottomMenu ul li a:visited{
+	font-size:15px;
+	color: #666;
+}
+#sns{
+	position:absolute;
+	right:0;
+}
+#sns ul li{
+	border: none;
+	padding: 5px;
+}
+#company{
+	clear:left;
+	margin-top:25px;
+	margin-left:20px;
+	
+}
+#company p {
+	font-size:14px;
+	color:#aaa;
+}
+
+
+
+/*본문*/
+#contents{
+	width:1200px;
+	margin: 100px auto;
+	
+}
+
+
 TD {
 	FONT-SIZE: 9pt; COLOR: black; LINE-HEIGHT: 160%; FONT-FAMILY: 굴림,verdana,tahoma
 }
@@ -20,6 +170,7 @@ TEXTAREA {
 INPUT {
 	BORDER-RIGHT: 1px solid #999999; BORDER-TOP: 1px solid #999999; FONT-SIZE: 9pt; BORDER-LEFT: 1px solid #999999; COLOR: BLACK; BORDER-BOTTOM: 1px solid #999999; FONT-FAMILY: 굴림,verdana; HEIGHT: 19px; BACKGROUND-COLOR: white
 }
+
 
 A:link {text-decoration:none;color:#696969}
 A:hover{text-decoration:yes;color:#66CCFF}
